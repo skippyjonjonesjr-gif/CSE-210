@@ -1,71 +1,45 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 class Program
 {
     static void Main(string[] args)
     {
-        List<int> numbers = new List<int>();
-        int userNumber = -1;
+        string playAgain = "yes";
 
-        Console.WriteLine("Enter a list of numbers, type 0 when finished.");
-
-        while (userNumber != 0)
+        while (playAgain == "yes")
         {
-            Console.Write("Enter number: ");
-            string response = Console.ReadLine();
-            userNumber = int.Parse(response);
+            Random randomGenerator = new Random();
+            int magicNumber = randomGenerator.Next(1, 101);
 
-            if (userNumber != 0)
+            int guess = -1;
+            int guessCount = 0;
+
+            while (guess != magicNumber)
             {
-                numbers.Add(userNumber);
-            }
-        }
+                Console.Write("What is your guess? ");
+                guess = int.Parse(Console.ReadLine());
+                guessCount++;
 
-        int sum = 0;
-        foreach (int number in numbers)
-        {
-            sum += number;
-        }
-        Console.WriteLine($"The sum is: {sum}");
-
-
-        float average = ((float)sum) / numbers.Count;
-        Console.WriteLine($"The average is: {average}");
-
-        int max = numbers[0];
-        foreach (int number in numbers)
-        {
-            if (number > max)
-            {
-                max = number;
-            }
-        }
-        Console.WriteLine($"The largest number is: {max}");
-
-
-        int? smallestPositive = null;
-        foreach (int number in numbers)
-        {
-            if (number > 0)
-            {
-                if (smallestPositive == null || number < smallestPositive)
+                if (magicNumber > guess)
                 {
-                    smallestPositive = number;
+                    Console.WriteLine("Higher");
+                }
+                else if (magicNumber < guess)
+                {
+                    Console.WriteLine("Lower");
+                }
+                else
+                {
+                    Console.WriteLine("You guessed it!");
                 }
             }
-        }
-        if (smallestPositive != null)
-        {
-            Console.WriteLine($"The smallest positive number is: {smallestPositive}");
+
+            Console.WriteLine($"It took you {guessCount} guesses.");
+
+            Console.Write("Do you want to play again (yes/no)? ");
+            playAgain = Console.ReadLine().ToLower();
         }
 
-        numbers.Sort();
-        Console.WriteLine("The sorted list is:");
-        foreach (int number in numbers)
-        {
-            Console.WriteLine(number);
-        }
+        Console.WriteLine("Thanks for playing!");
     }
 }
