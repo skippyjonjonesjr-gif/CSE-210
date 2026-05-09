@@ -1,3 +1,9 @@
+/* In addition to the assignment I also added a feature that 
+makes sure that there are no repeat prompts,
+or that we use all the prompts before repeating. 
+*/
+
+
 class Program
 {
     static void Main(string[] args)
