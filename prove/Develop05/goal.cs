@@ -2,7 +2,7 @@ using System;
 
 namespace EternalQuest
 {
-       public abstract class Goal
+    public abstract class Goal
     {
         private string _shortName;
         private string _description;
@@ -15,9 +15,20 @@ namespace EternalQuest
             _points = points;
         }
 
-        public string ShortName => _shortName;
-        public string Description => _description;
-        public int Points => _points;
+        public string ShortName
+        {
+            get { return _shortName; }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+        }
+
+        public int Points
+        {
+            get { return _points; }
+        }
 
         public abstract int RecordEvent();
         public abstract bool IsComplete();
