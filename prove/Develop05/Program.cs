@@ -4,22 +4,23 @@ using System.IO;
 
 namespace EternalQuest
 {
-   
     class Program
     {
         private static List<Goal> _goals = new List<Goal>();
         private static int _score = 0;
 
-        private static int GetPlayerLevel() => (_score / 1000) + 1;
+        private static int GetPlayerLevel()
+        {
+            return (_score / 1000) + 1;
+        }
 
         static void Main(string[] args)
         {
-
             bool running = true;
             while (running)
             {
                 Console.WriteLine();
-                Console.WriteLine($"--- 🏆 Score: {_score} Points | 🛡️ Level: {GetPlayerLevel()} ---");
+                Console.WriteLine($"---  Score: {_score} Points |  Level: {GetPlayerLevel()} ---");
                 Console.WriteLine();
                 Console.WriteLine("Menu Options:");
                 Console.WriteLine("  1. Create New Goal");
