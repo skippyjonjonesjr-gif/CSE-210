@@ -30,7 +30,10 @@ namespace EternalQuest
             return 0;
         }
 
-        public override bool IsComplete() => _amountCompleted >= _target;
+        public override bool IsComplete()
+        {
+            return _amountCompleted >= _target;
+        }
 
         public override string GetDetailsString()
         {
