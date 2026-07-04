@@ -22,7 +22,10 @@ namespace EternalQuest
             return 0;
         }
 
-        public override bool IsComplete() => _isComplete;
+        public override bool IsComplete()
+        {
+            return _isComplete;
+        }
 
         public override string GetDetailsString()
         {
