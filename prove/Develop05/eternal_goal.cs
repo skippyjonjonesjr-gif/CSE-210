@@ -2,7 +2,6 @@ using System;
 
 namespace EternalQuest
 {
-
     public class EternalGoal : Goal
     {
         private int _streakCount; 
@@ -18,17 +17,20 @@ namespace EternalQuest
             _streakCount++;
             if (_streakCount % 5 == 0)
             {
-                Console.WriteLine($"🔥 Streak Bonus! You've completed this {_streakCount} times in a row! (+20 Bonus XP)");
+                Console.WriteLine($" Streak Bonus! You've completed this {_streakCount} times in a row! (+20 Bonus XP)");
                 return Points + 20;
             }
             return Points;
         }
 
-        public override bool IsComplete() => false; 
+        public override bool IsComplete()
+        {
+            return false;
+        }
 
         public override string GetDetailsString()
         {
-            return $"[ ] {ShortName} ({Description}) — Current Streak: 🔥 {_streakCount}";
+            return $"[ ] {ShortName} ({Description}) — Current Streak:  {_streakCount}";
         }
 
         public override string GetStringRepresentation()
